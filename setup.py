@@ -1,4 +1,5 @@
-from setup import setup, find_packages
+from setuptools import setup, find_packages
+
 setup(
     name="medical_chatbot",
     version="1.0.0",
