@@ -36,7 +36,7 @@ retriever = docsearch.as_retriever(search_type="similarity", search_kwargs={"k":
 # Initialize the LLM
 llm = HuggingFaceEndpoint(
     repo_id="mistralai/Mistral-7B-Instruct-v0.2",
-    temperature=0.5,
+    temperature=0,
     huggingfacehub_api_token=os.getenv("HUGGINGFACE_API_TOKEN"),
 )
 
