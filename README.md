@@ -1,14 +1,55 @@
-# Medibot: LLM Medical Chatbot 
+# Medibot: LLM-Powered Medical Chatbot
 
-# How to run?
-### STEPS:
+**Medibot** is a Generative AI chatbot designed to assist with medical queries. It utilizes **Retrieval-Augmented Generation (RAG)** to provide accurate, context-aware answers based on a curated knowledge base of medical PDF documents. 
 
-Clone the repository
+By leveraging **LangChain**, **Pinecone**, and **OpenAI**, Medibot enables users to chat conversationally with medical literature, maintaining context across multiple turns of conversation.
+
+## 🚀 Features
+
+- **RAG Architecture**: Retrieves relevant medical context from a vector database before generating answers to ensure accuracy and reduce hallucinations.
+- **Conversational Memory**: Remembers previous questions and context within a session, allowing for follow-up questions.
+- **Vector Search**: Uses Pinecone for high-performance similarity search on document embeddings.
+- **Automated Deployment**: Integrated CI/CD pipeline using GitHub Actions for seamless updates to AWS EC2.
+
+## 🛠️ Tech Stack
+
+- **Language**: Python 3.10+
+- **Framework**: Flask (Web Application)
+- **Orchestration**: LangChain (v0.3.x)
+- **Vector Database**: Pinecone
+- **LLM**: OpenAI (GPT-3.5/4)
+- **Embeddings**: Sentence Transformers / HuggingFace
+- **DevOps**: AWS EC2, GitHub Actions, Docker (optional if used)
+
+## 📂 Project Structure
+
+```text
+Medibot/
+├── .github/
+│   └── workflows/
+│       └── main.yml     # CI/CD Pipeline configuration
+├── src/
+│   ├── helper.py        # Functions for loading and splitting PDFs
+│   ├── prompt.py        # Prompt templates for system instructions
+│   └── ...
+├── templates/
+│   └── chat.html        # HTML frontend for the chatbot
+├── static/              # CSS/JS files
+├── store_index.py       # Script to ingest PDFs into Pinecone
+├── app.py               # Main Flask application
+├── requirements.txt     # Python dependencies
+├── .env                 # API keys (not uploaded to GitHub)
+└── README.md
+
+
+⚙️ Installation (Local)
+
+1. Clone the repository: 
 
 ```bash
-git clone 
+git clone https://github.com/sarehsoltani/Medibot.git
 ```
-### STEP 01- Create a conda environment after opening the repository
+### 2. Create a Virtual Environment
 
 ```bash
 conda create -n medibot python=3.10 -y
@@ -18,19 +59,26 @@ conda create -n medibot python=3.10 -y
 conda activate medibot
 ```
 
-802249258227.dkr.ecr.us-east-2.amazonaws.com/medicalbot
 
-### STEP 02- install the requirements
+### 3. Install Dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-### Create a `.env` file in the root directory and add your Pinecone & openai credentials as follows:
+### 4. Configure Environment Variables: 
+Create a `.env` file in the root directory and add your Pinecone & Huggingface credentials as follows:
 
 ```ini
 PINECONE_API_KEY = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 HUGGINGFACE_TOKEN = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 ```
+
+🧠 Data Ingestion
+Before running the chatbot, you need to process your medical PDFs:
+
+Place your PDF files in the data/ directory.
+
+Run the ingestion script:
 
 ```bash
 # run the following command to store embeddings to pinecone
@@ -47,7 +95,9 @@ Now,
 open up localhost:
 ```
 
-# AWS-CICD-Deployment-with-Github-Actions
+
+# 🔄 CI/CD Deployment
+This project uses GitHub Actions for Continuous Integration and Deployment to AWS EC2.
 
 ## 1. Login to AWS console.
 
@@ -82,11 +132,9 @@ open up localhost:
 ## 3. Create ECR repo to store/save docker image
     - Save the URI: 802249258227.dkr.ecr.us-east-1.amazonaws.com/medicalbot
 
-	
 ## 4. Create EC2 machine (Ubuntu) 
 
 ## 5. Open EC2 and Install docker in EC2 Machine:
-	
 	
 	#optinal
 
