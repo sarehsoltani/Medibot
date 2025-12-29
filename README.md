@@ -40,9 +40,9 @@ Medibot/
 ├── requirements.txt     # Python dependencies
 ├── .env                 # API keys (not uploaded to GitHub)
 └── README.md
+```
 
-
-⚙️ Installation (Local)
+## ⚙️ Installation (Local)
 
 ### 1. Clone the repository
 
