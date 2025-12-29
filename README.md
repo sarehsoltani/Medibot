@@ -40,15 +40,16 @@ Medibot/
 ├── requirements.txt     # Python dependencies
 ├── .env                 # API keys (not uploaded to GitHub)
 └── README.md
+```
 
+## ⚙️ Installation (Local)
 
-⚙️ Installation (Local)
-
-1. Clone the repository: 
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/sarehsoltani/Medibot.git
 ```
+
 ### 2. Create a Virtual Environment
 
 ```bash

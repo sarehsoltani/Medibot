@@ -77,7 +77,6 @@ target/
 
 # .env files
 .env
-
 # Jupyter Notebook
 .ipynb_checkpoints
 
